@@ -1,14 +1,22 @@
-package shift.code;
+package shift.code.report;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
-
-import java.util.List;
 
 @Getter
-@Setter
-public class Report <T>{
+@AllArgsConstructor
+public class Report {
     private int elementsCount;
+    private String fileName;
 
+    @Override
+    public String toString() {
+        return String.format("""
+                        Short statistics for "%s":
+                        Elements count: %s
+                        ========================
+                        """,
+                this.getFileName(), this.getElementsCount());
+    }
 
 }

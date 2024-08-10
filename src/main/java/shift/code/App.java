@@ -50,9 +50,13 @@ public class App implements Callable<Integer> {
     }
 
     @Override
-    public Integer call() throws Exception {
+    public Integer call() throws IOException {
         var stat = new Statistics(shortStat, fullStat);
-        mapToFiles(parse(List.of(files)), prefix, path, append);
+        var content = parse(List.of(files));
+        stat.addReports(content, prefix);
+        mapToFiles(content, prefix, path, append);
+        String statistics = stat.getStatistics();
+        System.out.println(statistics);
         return 0;
     }
 
