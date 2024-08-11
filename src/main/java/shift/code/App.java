@@ -5,19 +5,16 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.Callable;
 
-import static shift.code.Parser.mapToFiles;
-import static shift.code.Parser.parse;
 
 @Command(name = "filter", mixinStandardHelpOptions = true, version = "filter 0.0",
         description = "Filter the contents of a file by data type ")
 public class App implements Callable<Integer> {
                                 //File[] files
-    @Parameters(index = "0..*", description = "files for filter") String[] files;
+    @Parameters(index = "0..*", description = "files for filter")
+    private String[] files;
 
     @Option(names = "-p",
             defaultValue = "",
@@ -51,12 +48,7 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws IOException {
-        var stat = new Statistics(shortStat, fullStat);
-        var content = parse(List.of(files));
-        stat.addReports(content, prefix);
-        mapToFiles(content, prefix, path, append);
-        String statistics = stat.getStatistics();
-        System.out.println(statistics);
+        System.out.println(Executor.execute(shortStat, fullStat, files, prefix, path, append));
         return 0;
     }
 

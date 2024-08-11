@@ -1,7 +1,5 @@
 package shift.code.report;
 
-import lombok.Setter;
-
 import java.util.List;
 
 public class FloatReport extends Report {
@@ -10,18 +8,16 @@ public class FloatReport extends Report {
     private Float sum;
     private Float avg;
 
-    public FloatReport(int elementsCount, String fileName) {
-        super(elementsCount, fileName);
-    }
+    public void generate(List<String> elements, String fileName) {
+        super.generate(elements, fileName);
 
-    public void generate(List<String> elements) {
         var numbers = elements.stream().map(Float::valueOf).sorted().toList();
 
         minNumber = numbers.getFirst();
         maxNumber = numbers.getLast();
 
         sum = numbers.stream().reduce(minNumber, Float::sum);
-        avg = sum/elements.size();
+        avg = sum / elements.size();
     }
 
     @Override
@@ -35,6 +31,7 @@ public class FloatReport extends Report {
                         Average value: %s
                         ========================
                         """,
-                this.getFileName(), this.getElementsCount(), minNumber, maxNumber, sum, avg);
+            this.getFileName(), this.getElementsCount(), minNumber, maxNumber, sum, avg
+        );
     }
 }

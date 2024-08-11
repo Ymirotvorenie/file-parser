@@ -6,11 +6,8 @@ public class StringReport extends Report {
     private int maxSize;
     private int minSize;
 
-    public StringReport(int elementsCount, String fileName) {
-        super(elementsCount, fileName);
-    }
-
-    public void generate(List<String> elements) {
+    public void generate(List<String> elements, String fileName) {
+        super.generate(elements, fileName);
         var strings = elements.stream().map(String::length).sorted().toList();
         minSize = strings.getFirst();
         maxSize = strings.getLast();

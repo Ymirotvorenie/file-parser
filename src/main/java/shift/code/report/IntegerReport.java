@@ -9,11 +9,10 @@ public class IntegerReport extends Report {
     private Long sum;
     private Double avg;
 
-    public IntegerReport(int elementsCount, String fileName) {
-        super(elementsCount, fileName);
-    }
+    @Override
+    public void generate(List<String> elements, String fileName) {
+        super.generate(elements, fileName);
 
-    public void generate(List<String> elements) {
         var numbers = elements.stream().map(Long::valueOf).sorted().toList();
 
         //minNumber = numbers.stream().reduce((numbers.getFirst()), (a, b) -> a > b ? a : b);

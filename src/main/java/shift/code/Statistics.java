@@ -12,7 +12,9 @@ import java.util.Map;
 
 @Getter
 public class Statistics {
+
     private final boolean isShort;
+
     private final boolean isFull;
 
     private final List<Report> reports = new ArrayList<>();
@@ -22,39 +24,22 @@ public class Statistics {
         this.isFull = isFull;
     }
 
-    public void addReports(Map<String,List<String>> elements, String prefix) {
-
-        if(isShort) {
-            for(var key : elements.keySet()) {
-                String fileName = prefix + key + ".txt";
-                reports.add(new Report(elements.get(key).size(), fileName));
+    public void addReports(Map<String, List<String>> elements, String prefix) {
+        for (var key : elements.keySet()) {
+            String fileName = prefix + key + ".txt";
+            var content = elements.get(key);
+            if (isShort) {
+                var report = getReport("");
+                report.generate(content, fileName);
+                //@todo
+                reports.add(report);
             }
-        }
-        if(isFull) {
-            for (var key: elements.keySet()) {
-                String fileName = prefix + key + ".txt";
-                var content = elements.get(key);
-                if(!content.isEmpty()) {
-                    switch (key) {
-                        case "integers": {
-                            var report = new IntegerReport(elements.get(key).size(),fileName);
-                            report.generate(elements.get(key));
-                            reports.add(report);
-                            break;
-                        }
-                        case "floats": {
-                            var report = new FloatReport(elements.get(key).size(), fileName);
-                            report.generate(elements.get(key));
-                            reports.add(report);
-                            break;
-                        }
-                        case "strings": {
-                            var report = new StringReport(elements.get(key).size(), fileName);
-                            report.generate(elements.get(key));
-                            reports.add(report);
-                            break;
-                        }
-                    }
+
+            if (isFull) {
+                if (!content.isEmpty()) {
+                    var report = getReport(key);
+                    report.generate(content, fileName);
+                    reports.add(report);
                 }
             }
         }
@@ -62,9 +47,18 @@ public class Statistics {
 
     public String getStatistics() {
         var result = new StringBuilder();
-        for(var report : reports) {
+        for (var report : reports) {
             result.append(report);
         }
         return result.toString();
+    }
+
+    private Report getReport(String key) {
+        return switch (key) {
+            case "integers" -> new IntegerReport();
+            case "floats" -> new FloatReport();
+            case "strings" -> new StringReport();
+            default -> new Report();
+        };
     }
 }

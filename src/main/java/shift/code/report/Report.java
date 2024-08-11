@@ -1,13 +1,20 @@
 package shift.code.report;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
 
 @Getter
-@AllArgsConstructor
+@Setter
 public class Report {
     private int elementsCount;
     private String fileName;
+
+    public void generate(List<String> elements, String fileName) {
+        this.elementsCount = elements.size();
+        this.fileName = fileName;
+    }
 
     @Override
     public String toString() {
@@ -18,5 +25,4 @@ public class Report {
                         """,
                 this.getFileName(), this.getElementsCount());
     }
-
 }
