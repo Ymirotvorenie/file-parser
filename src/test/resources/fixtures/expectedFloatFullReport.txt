@@ -1,0 +1,7 @@
+Full statistics for "test-floats.txt":
+Elements count: 5
+Minimum number: -0.001
+Maximum number: 9.00009
+Sum of all numbers: 12.139589
+Average value: 2.427918
+========================

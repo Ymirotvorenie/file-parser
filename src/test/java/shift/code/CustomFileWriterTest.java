@@ -1,5 +1,6 @@
 package shift.code;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -13,6 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CustomFileWriterTest {
+    @AfterEach
+    public void clean() {
+        TestUtils.deleteFilesAfterTest();
+    }
 
     @Test
     public void testCustomFileWriter() throws IOException {
@@ -21,24 +26,17 @@ public class CustomFileWriterTest {
         var resultMap = Parser.parse(files);
         CustomFileWriter.write(resultMap, "test-", Utils.getFixturePath(""), false);
 
-        var resultInt = Utils.getFileContent(Utils.getFixturePath("integers.txt"));
+        var resultInt = Utils.getFileContent(Utils.getFixturePath("test-integers.txt"));
         var expectedInt = Utils.getFileContent(Utils.getFixturePath("integers.txt"));
         assertEquals(expectedInt, resultInt);
 
-        var resultFloat = Utils.getFileContent(Utils.getFixturePath("floats.txt"));
+        var resultFloat = Utils.getFileContent(Utils.getFixturePath("test-floats.txt"));
         var expectedFloat = Utils.getFileContent(Utils.getFixturePath("floats.txt"));
         assertEquals(expectedFloat, resultFloat);
 
-        var resultString = Utils.getFileContent(Utils.getFixturePath("strings.txt"));
+        var resultString = Utils.getFileContent(Utils.getFixturePath("test-strings.txt"));
         var expectedString = Utils.getFileContent(Utils.getFixturePath("strings.txt"));
         assertEquals(expectedString, resultString);
-
-        var file = new File(Utils.getFixturePath("test-integers.txt"));
-        assertTrue(file.delete());
-        file = new File(Utils.getFixturePath("test-floats.txt"));
-        assertTrue(file.delete());
-        file = new File(Utils.getFixturePath("test-strings.txt"));
-        assertTrue(file.delete());
     }
 
     @Test
@@ -49,7 +47,6 @@ public class CustomFileWriterTest {
 
         assertThrows(IOException.class,
                 () -> CustomFileWriter.write(resultMap, "test-", "/", false));
-
     }
 
     @Test
@@ -61,7 +58,6 @@ public class CustomFileWriterTest {
 
         assertTrue(resultMap.get("strings").isEmpty());
         assertFalse(file.exists());
-
     }
 
 }

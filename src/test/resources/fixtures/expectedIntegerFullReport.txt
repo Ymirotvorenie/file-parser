@@ -1,0 +1,7 @@
+Full statistics for "test-integers.txt":
+Elements count: 5
+Minimum number: 45
+Maximum number: 1234567890123456789
+Sum of all numbers: 2469135780247019869
+Average value: 4.93827156049404E17
+========================

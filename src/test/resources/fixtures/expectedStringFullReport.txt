@@ -1,0 +1,5 @@
+Full statistics for "test-strings.txt":
+Elements count: 6
+Minimum string length: 4
+Maximum string length: 42
+========================

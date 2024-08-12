@@ -34,6 +34,6 @@ public class Utils {
     }
 
     public static String getFixturePath(String fileName) {
-        return "./src/test/resources/" + fileName;
+        return "./src/test/resources/fixtures/" + fileName;
     }
 }

@@ -1,0 +1,3 @@
+Short statistics for "test-integers.txt":
+Elements count: 5
+========================
