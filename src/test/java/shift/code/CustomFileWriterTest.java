@@ -29,7 +29,7 @@ public class CustomFileWriterTest {
         var expectedFloat = Utils.getFileContent(Utils.getFixturePath("floats.txt"));
         assertEquals(expectedFloat, resultFloat);
 
-        var resultString= Utils.getFileContent(Utils.getFixturePath("strings.txt"));
+        var resultString = Utils.getFileContent(Utils.getFixturePath("strings.txt"));
         var expectedString = Utils.getFileContent(Utils.getFixturePath("strings.txt"));
         assertEquals(expectedString, resultString);
 
@@ -43,7 +43,8 @@ public class CustomFileWriterTest {
 
     @Test
     public void testCustomFileWriterException() throws IOException {
-        var files = new ArrayList<>(List.of(Utils.getFixturePath("file1.txt"), Utils.getFixturePath("file2.txt"), Utils.getFixturePath("file3.txt")));
+        var files = new ArrayList<>(List.of(Utils.getFixturePath("file1.txt"),
+                Utils.getFixturePath("file2.txt"), Utils.getFixturePath("file3.txt")));
         var resultMap = Parser.parse(files);
 
         assertThrows(IOException.class,
