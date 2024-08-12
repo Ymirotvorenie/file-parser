@@ -3,9 +3,13 @@ package shift.code.report;
 import java.util.List;
 
 public class FloatReport extends Report {
+
     private Float minNumber;
+
     private Float maxNumber;
+
     private Float sum;
+
     private Float avg;
 
     public void generate(List<String> elements, String fileName) {

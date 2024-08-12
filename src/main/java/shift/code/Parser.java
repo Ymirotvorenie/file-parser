@@ -1,6 +1,7 @@
 package shift.code;
 
 import org.apache.commons.lang3.math.NumberUtils;
+import shift.code.report.Report;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +30,6 @@ public class Parser {
             }
         }
 
-        return Map.of("integers", integers, "floats", floats, "strings", strings);
+        return Map.of(Report.INTEGERS, integers, Report.FLOATS, floats, Report.STRINGS, strings);
     }
 }

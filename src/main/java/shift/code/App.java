@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.concurrent.Callable;
 
 
-@Command(name = "filter", mixinStandardHelpOptions = true, version = "filter 0.0",
+@Command(name = "file-parser", mixinStandardHelpOptions = true, version = "file-parser 0.0",
         description = "Filter the contents of a file by data type ")
 public class App implements Callable<Integer> {
                                 //File[] files
@@ -48,7 +48,21 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws IOException {
-        System.out.println(Executor.execute(shortStat, fullStat, files, prefix, path, append));
+        try {
+            var executor = new Executor();
+
+            executor.setShort(shortStat)
+                    .setFull(fullStat)
+                    .setFiles(files)
+                    .setPrefix(prefix)
+                    .setPath(path)
+                    .setAppend(append);
+
+            System.out.println(executor.execute());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+            return 1;
+        }
         return 0;
     }
 

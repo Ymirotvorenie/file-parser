@@ -1,21 +1,26 @@
+
+
 plugins {
+    java
     application
     checkstyle
     jacoco
+
 }
 
 application {
     mainClass = "shift.code.App"
+
 }
 
 group = "shift.code"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+
     testImplementation(platform("org.junit:junit-bom:5.10.3"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 
@@ -26,7 +31,7 @@ dependencies {
     testCompileOnly ("org.projectlombok:lombok:1.18.34")
     testAnnotationProcessor ("org.projectlombok:lombok:1.18.34")
 
-    implementation("com.google.guava:guava:33.1.0-jre")
+    implementation("com.google.guava:guava:33.2.1-jre")
 
     implementation("org.apache.commons:commons-lang3:3.16.0")
 }
@@ -39,3 +44,5 @@ tasks.test {
 tasks.jacocoTestReport {
     reports { xml.required.set(true) }
 }
+
+

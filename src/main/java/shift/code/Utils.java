@@ -11,6 +11,8 @@ import java.util.List;
 
 public class Utils {
 
+    public static final String FILE_EXTENSION = ".txt";
+
     public static String getPath(String file) {
         return Paths.get(file).toAbsolutePath().toString();
     }

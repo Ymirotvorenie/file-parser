@@ -3,7 +3,9 @@ package shift.code.report;
 import java.util.List;
 
 public class StringReport extends Report {
+
     private int maxSize;
+
     private int minSize;
 
     public void generate(List<String> elements, String fileName) {
@@ -22,6 +24,7 @@ public class StringReport extends Report {
                         Maximum string length: %s
                         ========================
                         """,
-                this.getFileName(), this.getElementsCount(), minSize, maxSize);
+                this.getFileName(), this.getElementsCount(), minSize, maxSize
+        );
     }
 }

@@ -8,7 +8,16 @@ import java.util.List;
 @Getter
 @Setter
 public class Report {
+    public final static String INTEGERS = "integers";
+
+    public final static String FLOATS = "floats";
+
+    public final static String STRINGS = "strings";
+
+    public final static String EMPTY = "";
+
     private int elementsCount;
+
     private String fileName;
 
     public void generate(List<String> elements, String fileName) {
@@ -23,6 +32,7 @@ public class Report {
                         Elements count: %s
                         ========================
                         """,
-                this.getFileName(), this.getElementsCount());
+                this.getFileName(), this.getElementsCount()
+        );
     }
 }

@@ -13,6 +13,7 @@ import java.util.Map;
 @Getter
 public class Statistics {
 
+
     private final boolean isShort;
 
     private final boolean isFull;
@@ -26,12 +27,11 @@ public class Statistics {
 
     public void addReports(Map<String, List<String>> elements, String prefix) {
         for (var key : elements.keySet()) {
-            String fileName = prefix + key + ".txt";
+            String fileName = prefix + key + Utils.FILE_EXTENSION;
             var content = elements.get(key);
             if (isShort) {
-                var report = getReport("");
+                var report = getReport(Report.EMPTY);
                 report.generate(content, fileName);
-                //@todo
                 reports.add(report);
             }
 
@@ -55,9 +55,9 @@ public class Statistics {
 
     private Report getReport(String key) {
         return switch (key) {
-            case "integers" -> new IntegerReport();
-            case "floats" -> new FloatReport();
-            case "strings" -> new StringReport();
+            case Report.INTEGERS -> new IntegerReport();
+            case Report.FLOATS -> new FloatReport();
+            case Report.STRINGS -> new StringReport();
             default -> new Report();
         };
     }

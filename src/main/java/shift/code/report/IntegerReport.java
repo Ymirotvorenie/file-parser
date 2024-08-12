@@ -4,9 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class IntegerReport extends Report {
+
     private Long minNumber;
+
     private Long maxNumber;
+
     private Long sum;
+
     private Double avg;
 
     @Override
@@ -15,7 +19,6 @@ public class IntegerReport extends Report {
 
         var numbers = elements.stream().map(Long::valueOf).sorted().toList();
 
-        //minNumber = numbers.stream().reduce((numbers.getFirst()), (a, b) -> a > b ? a : b);
         minNumber = numbers.getFirst();
         maxNumber = numbers.getLast();
 
@@ -34,6 +37,7 @@ public class IntegerReport extends Report {
                         Average value: %s
                         ========================
                         """,
-                this.getFileName(), this.getElementsCount(), minNumber, maxNumber, sum, avg);
+                this.getFileName(), this.getElementsCount(), minNumber, maxNumber, sum, avg
+        );
     }
 }
