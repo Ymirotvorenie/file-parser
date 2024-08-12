@@ -18,7 +18,14 @@ git clone git@github.com:Ymirotvorenie/file-parser.git
 
 ### **Запуск утилиты**
 ```
+Можно запустить напрямую обратившись к bin-файлу
 ./build/install/file-parser/bin/file-parser [-afhsV] [-o=<path>] [-p=<prefix>] [<files>...]
+
+Можно запустить с помощью bash-script:
+./file-parser [-afhsV] [-o=<path>] [-p=<prefix>] [<files>...]
+
+(При ошибке "Отказано в доступе" 
+=> Выдать права на выполнение текущему пользователю "chmod 755 file-parser")
 ```
 
 ### **Справка**

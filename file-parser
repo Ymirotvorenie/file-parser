@@ -1,0 +1,1 @@
+./build/install/file-parser/bin/file-parser $@
