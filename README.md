@@ -13,7 +13,7 @@ Gradle 8.7
 ```
 git clone git@github.com:Ymirotvorenie/file-parser.git
 ./gradlew installDist 
-=> ./build/install/file-parser/bin/file-parser.bin
+Результатом выполнения является создание bin-файла ./build/install/file-parser/bin/file-parser.bin
 ```
 
 ### **Запуск утилиты**
@@ -31,6 +31,8 @@ git clone git@github.com:Ymirotvorenie/file-parser.git
 ### **Справка**
 ```
 ./build/install/file-parser/bin/file-parser -h
+или
+./file-parser -р
 ```
 
 ### **Зависимости**

@@ -1,6 +1,5 @@
 package shift.code;
 
-import lombok.Getter;
 import shift.code.report.FloatReport;
 import shift.code.report.IntegerReport;
 import shift.code.report.Report;
@@ -10,9 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Getter
 public class Statistics {
-
 
     private final boolean isShort;
 
