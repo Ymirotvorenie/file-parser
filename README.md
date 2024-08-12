@@ -21,7 +21,7 @@ git clone https://github.com/Ymirotvorenie/file-parser.git
 Можно запустить напрямую обратившись к bin-файлу
 ./build/install/file-parser/bin/file-parser [-afhsV] [-o=<path>] [-p=<prefix>] [<files>...]
 
-Можно запустить с помощью bash-script:
+На Linux можно запустить с помощью bash-script:
 ./file-parser [-afhsV] [-o=<path>] [-p=<prefix>] [<files>...]
 
 (При ошибке "Отказано в доступе" 
@@ -32,7 +32,7 @@ git clone https://github.com/Ymirotvorenie/file-parser.git
 ```
 ./build/install/file-parser/bin/file-parser -h
 или
-./file-parser -р
+./file-parser -h
 ```
 
 ### **Зависимости**
