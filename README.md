@@ -1,5 +1,8 @@
 # **File Parser**
 
+<a href="https://codeclimate.com/github/Ymirotvorenie/file-parser/maintainability"><img src="https://api.codeclimate.com/v1/badges/4e39f22ac36165da3cf2/maintainability" /></a>
+<a href="https://codeclimate.com/github/Ymirotvorenie/file-parser/test_coverage"><img src="https://api.codeclimate.com/v1/badges/4e39f22ac36165da3cf2/test_coverage" /></a>
+
 ```
 Java 21
 Gradle 8.7

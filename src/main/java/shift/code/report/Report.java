@@ -8,13 +8,13 @@ import java.util.List;
 @Getter
 @Setter
 public class Report {
-    public final static String INTEGERS = "integers";
+    public static final String INTEGERS = "integers";
 
-    public final static String FLOATS = "floats";
+    public static final String FLOATS = "floats";
 
-    public final static String STRINGS = "strings";
+    public static final String STRINGS = "strings";
 
-    public final static String EMPTY = "";
+    public static final String EMPTY = "";
 
     private int elementsCount;
 

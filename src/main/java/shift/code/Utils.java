@@ -32,4 +32,8 @@ public class Utils {
 
         return content;
     }
+
+    public static String getFixturePath(String fileName) {
+        return "./src/test/resources/" + fileName;
+    }
 }

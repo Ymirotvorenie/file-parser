@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class CustomFileWriter {
 
-    public static void write (Map<String, List<String>> data, String filePrefix,
-                             String customPath, boolean append) {
+    public static void write(Map<String, List<String>> data, String filePrefix,
+                             String customPath, boolean append) throws IOException {
         for (String key : data.keySet()) {
             if (!data.get(key).isEmpty()) {
                 String fileName = customPath + filePrefix + key + Utils.FILE_EXTENSION;
@@ -17,8 +17,6 @@ public class CustomFileWriter {
                     for (String element : data.get(key)) {
                         writer.write(element + "\n");
                     }
-                } catch (IOException e) {
-                    System.out.println("Возникла ошибка во время записи, проверьте данные.");
                 }
             }
         }

@@ -11,7 +11,7 @@ import java.util.Map;
 import static shift.code.Utils.getContentFromFiles;
 
 public class Parser {
-    public static Map<String, List<String>> parse (List<String> files) throws IOException {
+    public static Map<String, List<String>> parse(List<String> files) throws IOException {
         var content = getContentFromFiles(files);
 
         var integers = new ArrayList<String>();
