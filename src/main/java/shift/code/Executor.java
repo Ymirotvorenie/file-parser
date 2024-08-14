@@ -32,6 +32,9 @@ public class Executor {
     }
 
     public Executor setFiles(String[] files) {
+        if (files == null) {
+            throw new IllegalArgumentException("Введите название файла/ов");
+        }
         this.files = List.of(files);
         return this;
     }

@@ -59,7 +59,7 @@ public class App implements Callable<Integer> {
                     .setAppend(append);
 
             System.out.println(executor.execute());
-        } catch (IOException ex) {
+        } catch (IOException | IllegalArgumentException ex) {
             System.out.println(ex.getMessage());
             return 1;
         }
